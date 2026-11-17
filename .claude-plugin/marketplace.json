@@ -1,0 +1,14 @@
+{
+  "name": "aircad",
+  "owner": {
+    "name": "Aircad, Inc.",
+    "url": "https://aircad.com"
+  },
+  "plugins": [
+    {
+      "name": "aircad",
+      "source": "./",
+      "description": "Draft and model in Aircad, the 2D and 3D CAD editor, from a conversation: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "aircad",
+  "version": "1.0.0",
+  "description": "Draft and model in Aircad, the 2D and 3D CAD editor: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands.",
+  "mcpServers": {
+    "aircad": {
+      "httpUrl": "https://mcp.aircad.com/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

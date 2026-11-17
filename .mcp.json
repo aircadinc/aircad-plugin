@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "aircad": {
+      "type": "http",
+      "url": "https://mcp.aircad.com/mcp"
+    }
+  }
+}

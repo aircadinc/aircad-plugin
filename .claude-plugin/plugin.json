@@ -1,0 +1,22 @@
+{
+  "name": "aircad",
+  "displayName": "Aircad",
+  "version": "1.0.0",
+  "description": "Draft and model in Aircad, the 2D and 3D CAD editor, from a conversation: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands.",
+  "author": {
+    "name": "Aircad, Inc.",
+    "url": "https://aircad.com"
+  },
+  "homepage": "https://aircad.com/docs/assistants",
+  "repository": "https://github.com/aircadinc/aircad-plugin",
+  "license": "MIT",
+  "privacyPolicyUrl": "https://aircad.com/privacy",
+  "keywords": [
+    "cad",
+    "drafting",
+    "3d-modeling",
+    "drawings",
+    "architecture",
+    "engineering"
+  ]
+}

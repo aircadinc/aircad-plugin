@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "aircad",
+  "version": "1.0.0",
+  "description": "Draft and model in Aircad, the 2D and 3D CAD editor, from a conversation: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands.",
+  "author": {
+    "name": "Aircad, Inc.",
+    "url": "https://aircad.com"
+  },
+  "homepage": "https://aircad.com/docs/assistants",
+  "repository": "https://github.com/aircadinc/aircad-plugin",
+  "license": "MIT",
+  "keywords": ["cad", "drafting", "3d-modeling", "drawings", "architecture", "engineering"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Aircad",
+        "shortDescription": "2D drafting and 3D modeling",
+        "longDescription": "Aircad is a 2D and 3D CAD editor that runs in the browser. Connect it to work in the drawing you have open: ask what is in it, measure and check it, build 3D models from a description, sketch, or reference image, lay out drawing sets with viewports, sections, dimensions, and title blocks, and turn a repeated task into a command you can run again.\n\nEvery change arrives as a draft. You see it tinted on the canvas and apply or discard it in Aircad, so nothing changes in your file until you say so. Aircad asks before an assistant reads a file for the first time, and the assistant works only in the files you allow.\n\nFor anyone who drafts or models: architects, engineers, product designers, fabricators, and students. You need an Aircad account, and the file must be open in Aircad in a browser tab or the desktop app. An assistant can't delete, rename, move, or share your files.",
+        "developerName": "Aircad, Inc.",
+        "category": "Design",
+        "capabilities": [
+          "Read and measure drawings",
+          "Model in 2D and 3D as drafts you review",
+          "Build layouts, viewports, and sections",
+          "Create, open, and fork files",
+          "Save reusable commands"
+        ],
+        "websiteURL": "https://aircad.com",
+        "supportURL": "https://aircad.com/docs/assistants",
+        "privacyPolicyURL": "https://aircad.com/privacy",
+        "termsOfServiceURL": "https://aircad.com/terms",
+        "defaultPrompt": [
+          "What's in the drawing I have open in Aircad?",
+          "Model a 600 mm square steel base plate with four bolt holes in Aircad.",
+          "Make a layout in Aircad with plan and front views of my model at 1:20."
+        ],
+        "brandColor": "#111111",
+        "brandColorDark": "#FFFFFF",
+        "composerIcon": "./assets/icon.svg",
+        "composerIconDark": "./assets/icon-dark.svg",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png"
+      }
+    }
+  }
+}
