@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "aircad",
-  "version": "1.0.0",
-  "description": "Draft and model in Aircad, the 2D and 3D CAD editor, from a conversation: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands.",
+  "version": "1.0.1",
+  "description": "Online CAD for 2D drafting and 3D modeling, from a conversation. Work in the drawing you have open in Aircad, including DWG, DXF, STEP, and Rhino 3DM files it opened: read and measure it, model in 3D, build drawing sets, and make reusable commands, as drafts you review.",
   "author": {
     "name": "Aircad, Inc.",
     "url": "https://aircad.com"
@@ -10,17 +10,34 @@
   "homepage": "https://aircad.com/docs/assistants",
   "repository": "https://github.com/aircadinc/aircad-plugin",
   "license": "MIT",
-  "keywords": ["cad", "drafting", "3d-modeling", "drawings", "architecture", "engineering"],
+  "keywords": [
+    "cad",
+    "online-cad",
+    "2d-drafting",
+    "3d-modeling",
+    "dwg",
+    "dxf",
+    "step",
+    "3dm",
+    "rhino",
+    "stl",
+    "gltf",
+    "drawings",
+    "architecture",
+    "engineering",
+    "product-design"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Aircad",
-        "shortDescription": "2D drafting and 3D modeling",
-        "longDescription": "Aircad is a 2D and 3D CAD editor that runs in the browser. Connect it to work in the drawing you have open: ask what is in it, measure and check it, build 3D models from a description, sketch, or reference image, lay out drawing sets with viewports, sections, dimensions, and title blocks, and turn a repeated task into a command you can run again.\n\nEvery change arrives as a draft. You see it tinted on the canvas and apply or discard it in Aircad, so nothing changes in your file until you say so. Aircad asks before an assistant reads a file for the first time, and the assistant works only in the files you allow.\n\nFor anyone who drafts or models: architects, engineers, product designers, fabricators, and students. You need an Aircad account, and the file must be open in Aircad in a browser tab or the desktop app. An assistant can't delete, rename, move, or share your files.",
+        "shortDescription": "Online CAD for 2D and 3D",
+        "longDescription": "Aircad is online CAD for precise 2D drafting and 3D modeling, in the browser or on Mac and Windows. It opens and saves DWG and DXF drawings with their layouts, blocks, and dimensions; imports and exports STEP, Rhino 3DM, glTF and GLB, STL, and OBJ; imports SVG; and exports drawing sets to PDF.\n\nConnect it to work in the drawing you have open, whichever format it came from: ask what is in it, measure and check it, build 3D models from a description, sketch, or reference image, lay out drawing sets with viewports, sections, dimensions, and title blocks, and turn a repeated task into a command you can run again.\n\nEvery change arrives as a draft. You see it tinted on the canvas and apply or discard it in Aircad, so nothing changes in your file until you say so. Aircad asks before an assistant reads a file for the first time, and the assistant works only in the files you allow.\n\nFor anyone who drafts or models: architects, engineers, product designers, fabricators, and students. You need an Aircad account (free to start), and the file must be open in Aircad in a browser tab or the desktop app. An assistant can't delete, rename, move, or share your files.",
         "developerName": "Aircad, Inc.",
         "category": "Design",
         "capabilities": [
           "Read and measure drawings",
+          "Work on DWG, DXF, STEP, and 3DM drawings open in Aircad",
           "Model in 2D and 3D as drafts you review",
           "Build layouts, viewports, and sections",
           "Create, open, and fork files",
@@ -31,7 +48,7 @@
         "privacyPolicyURL": "https://aircad.com/privacy",
         "termsOfServiceURL": "https://aircad.com/terms",
         "defaultPrompt": [
-          "What's in the drawing I have open in Aircad?",
+          "What's in the DWG drawing I have open in Aircad?",
           "Model a 600 mm square steel base plate with four bolt holes in Aircad.",
           "Make a layout in Aircad with plan and front views of my model at 1:20."
         ],
@@ -41,6 +58,59 @@
         "composerIconDark": "./assets/icon-dark.svg",
         "logo": "./assets/logo.png",
         "logoDark": "./assets/logo-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find a file that isn't open, open it, and describe it.",
+              "prompt": "Open my Alder Street House drawing in Aircad and tell me what's in it.",
+              "tools_triggered": "list_files, open_file, file_brief",
+              "expected_behavior": "Finds Alder Street House with list_files. With no Aircad tab open, open_file returns a link; the reviewer opens it (signed in at aircad.com/login/review) and clicks Allow in Aircad. The assistant then summarizes the drawing from file_brief: its units, layers, layouts, and overall size. Nothing in the file changes."
+            },
+            {
+              "description": "Answer a measurement question by reading the file, without changing it.",
+              "prompt": "In my Machined bracket file in Aircad, what are the bracket's overall dimensions, and how many holes does it have?",
+              "tools_triggered": "open_file, file_brief, script_api_reference, run_query_script",
+              "expected_behavior": "Opens Machined bracket (Allow in Aircad the first time), reads it with a query script, and answers with the overall length, width, and height in the file's units and the number of holes. No draft appears and nothing in the file changes."
+            },
+            {
+              "description": "Make a new file and model a part in it as a draft the user reviews.",
+              "prompt": "Make a new metric Aircad file for small parts and model a 100 x 60 x 10 mm plate with four 6 mm holes, 10 mm in from each corner.",
+              "tools_triggered": "create_file, open_file, file_brief, script_api_reference, run_edit_script",
+              "expected_behavior": "Creates a metric file for small parts without asking again (the prompt says both), opens it, and runs an edit script. The plate with four holes appears tinted on the canvas as a draft, and the assistant says it is waiting to be applied in Aircad. After the reviewer clicks Apply, the plate is in the file; Discard removes it."
+            },
+            {
+              "description": "Build a layout with views of an existing model.",
+              "prompt": "In my Machined bracket file, add a layout with top and front views of the bracket at 1:1.",
+              "tools_triggered": "file_brief, script_api_reference, run_query_script, run_edit_script",
+              "expected_behavior": "Adds a layout as a draft with two viewports onto the model, one looking from the top and one from the front, both at 1:1 and framed on the bracket. The assistant names the layout and says the draft is waiting to be applied in Aircad."
+            },
+            {
+              "description": "Save a reusable command the user can try.",
+              "prompt": "Make me an Aircad command that draws a slot from two center points and a width.",
+              "tools_triggered": "script_api_reference, save_command",
+              "expected_behavior": "Saves a command named for slots in the open file's Scripts panel and tells the user to try it there. Running it asks for two points and a width on the command line, previews the slot while picking, and draws a closed slot outline."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Deleting a file is refused: no tool deletes files.",
+              "prompt": "Delete my Machined bracket file from Aircad.",
+              "expected_behavior": "Says it can't delete Aircad files and that the user can delete it from their file list in Aircad. No file is deleted or changed."
+            },
+            {
+              "description": "Sharing a file is refused: no tool shares files.",
+              "prompt": "Share my Alder Street House drawing with alex@example.com so they can edit it.",
+              "expected_behavior": "Says it can't share files or change who can see them, and that the user can share from the Share button in Aircad. Nothing is shared."
+            },
+            {
+              "description": "A request with nothing to do with drawing or modeling doesn't use Aircad.",
+              "prompt": "What's a good recipe for banana bread?",
+              "expected_behavior": "Answers without calling any Aircad tool."
+            }
+          ]
+        }
       }
     }
   }

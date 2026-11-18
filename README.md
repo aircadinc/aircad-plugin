@@ -1,8 +1,14 @@
 # Aircad
 
-Draft and model in [Aircad](https://aircad.com), the 2D and 3D CAD editor,
-from a conversation with your assistant. The plugin connects the Aircad MCP
-server and adds skills for modeling, drawing sets, and reusable commands.
+Draft and model in [Aircad](https://aircad.com), online CAD for 2D drafting
+and 3D modeling, from a conversation with your assistant. The plugin connects
+the Aircad MCP server and adds skills for modeling, drawing sets, and
+reusable commands.
+
+Aircad opens and saves DWG and DXF drawings with their layouts, blocks, and
+dimensions; imports and exports STEP, Rhino 3DM, glTF and GLB, STL, and OBJ;
+imports SVG; and exports drawing sets to PDF. Your assistant works on any
+drawing open in Aircad, whichever format it came from.
 
 It works in Claude (chat, Cowork, and Claude Code), ChatGPT and Codex,
 Antigravity, and Gemini CLI.

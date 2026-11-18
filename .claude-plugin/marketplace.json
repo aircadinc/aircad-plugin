@@ -4,11 +4,14 @@
     "name": "Aircad, Inc.",
     "url": "https://aircad.com"
   },
+  "metadata": {
+    "description": "Aircad's plugin for Claude: the Aircad MCP server with skills for modeling, drawing sets, and commands."
+  },
   "plugins": [
     {
       "name": "aircad",
       "source": "./",
-      "description": "Draft and model in Aircad, the 2D and 3D CAD editor, from a conversation: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands."
+      "description": "Online CAD for 2D drafting and 3D modeling, from a conversation. Work in the drawing you have open in Aircad, including DWG, DXF, STEP, and Rhino 3DM files it opened: read and measure it, model in 3D, build drawing sets, and make reusable commands, as drafts you review."
     }
   ]
 }

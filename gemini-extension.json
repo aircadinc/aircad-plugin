@@ -1,7 +1,7 @@
 {
   "name": "aircad",
-  "version": "1.0.0",
-  "description": "Draft and model in Aircad, the 2D and 3D CAD editor: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands.",
+  "version": "1.0.1",
+  "description": "Online CAD for 2D drafting and 3D modeling, from a conversation. Work in the drawing you have open in Aircad, including DWG, DXF, STEP, and Rhino 3DM files it opened: read and measure it, model in 3D, build drawing sets, and make reusable commands, as drafts you review.",
   "mcpServers": {
     "aircad": {
       "httpUrl": "https://mcp.aircad.com/mcp"

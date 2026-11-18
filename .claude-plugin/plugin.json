@@ -1,8 +1,8 @@
 {
   "name": "aircad",
   "displayName": "Aircad",
-  "version": "1.0.0",
-  "description": "Draft and model in Aircad, the 2D and 3D CAD editor, from a conversation: read the drawing you have open, build models and drawing sets as drafts you review, and make reusable commands.",
+  "version": "1.0.1",
+  "description": "Online CAD for 2D drafting and 3D modeling, from a conversation. Work in the drawing you have open in Aircad, including DWG, DXF, STEP, and Rhino 3DM files it opened: read and measure it, model in 3D, build drawing sets, and make reusable commands, as drafts you review.",
   "author": {
     "name": "Aircad, Inc.",
     "url": "https://aircad.com"
@@ -13,10 +13,19 @@
   "privacyPolicyUrl": "https://aircad.com/privacy",
   "keywords": [
     "cad",
-    "drafting",
+    "online-cad",
+    "2d-drafting",
     "3d-modeling",
+    "dwg",
+    "dxf",
+    "step",
+    "3dm",
+    "rhino",
+    "stl",
+    "gltf",
     "drawings",
     "architecture",
-    "engineering"
+    "engineering",
+    "product-design"
   ]
 }
