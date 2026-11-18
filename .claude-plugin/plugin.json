@@ -1,7 +1,7 @@
 {
   "name": "aircad",
   "displayName": "Aircad",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Online CAD for 2D drafting and 3D modeling, from a conversation. Work in the drawing you have open in Aircad, including DWG, DXF, STEP, and Rhino 3DM files it opened: read and measure it, model in 3D, build drawing sets, and make reusable commands, as drafts you review.",
   "author": {
     "name": "Aircad, Inc.",
@@ -10,7 +10,11 @@
   "homepage": "https://aircad.com/docs/assistants",
   "repository": "https://github.com/aircadinc/aircad-plugin",
   "license": "MIT",
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://aircad.com/docs/assistants",
+  "supportUrl": "https://aircad.com/docs/assistants",
   "privacyPolicyUrl": "https://aircad.com/privacy",
+  "termsOfServiceUrl": "https://aircad.com/terms",
   "keywords": [
     "cad",
     "online-cad",

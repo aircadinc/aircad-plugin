@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "aircad",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Online CAD for 2D drafting and 3D modeling, from a conversation. Work in the drawing you have open in Aircad, including DWG, DXF, STEP, and Rhino 3DM files it opened: read and measure it, model in 3D, build drawing sets, and make reusable commands, as drafts you review.",
   "author": {
     "name": "Aircad, Inc.",
